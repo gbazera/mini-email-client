@@ -1,10 +1,15 @@
-DataTable, Label, Log{
+DataTable, .subject, Log{
     margin: 1;
     border: $secondary;
 }
 
-Label{
+.subject{
     text-style: bold;
     color: $secondary;
     border: none;
+}
+
+Log{
+    padding: 1;
+    border: $primary;
 }
