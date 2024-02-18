@@ -1,7 +1,6 @@
 from rich.text import Text
 from textual.app import App, ComposeResult
-from textual.widgets import Footer, DataTable, RichLog, Label
-from textual.events import Key
+from textual.widgets import Footer, DataTable, Log, Label
 
 from get_emails import get_emails
 
@@ -22,10 +21,10 @@ class MiniEmailClient(App):
         super().__init__(**kwargs)
 
     def compose(self) -> ComposeResult:
-        yield Footer()
         yield DataTable(zebra_stripes=True)
-        yield Label()
-        yield RichLog(auto_scroll=False)
+        yield Label(messages[0][1])
+        yield Log(auto_scroll=False)
+        yield Footer()
     
     def on_mount(self) -> None:
         # Table
@@ -37,14 +36,18 @@ class MiniEmailClient(App):
             table.add_row(*row, label=label)
         
         # Log
-        log = self.query_one(RichLog)
+        log = self.query_one(Log)
         log.write(message_contents[0])
     
     def on_data_table_row_selected(self) -> None:
         table = self.query_one(DataTable)
-        log = self.query_one(RichLog)
+        id = table.cursor_coordinate[0]
+        label = self.query_one(Label)
+        label.update(messages[id][1])
+        log = self.query_one(Log)
         log.clear()
-        log.write(message_contents[table.cursor_coordinate[0]])
+        log.write(message_contents[id])
+        
 
     def action_toggle_dark(self) -> None:
         self.dark = not self.dark

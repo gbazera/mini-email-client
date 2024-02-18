@@ -1,7 +1,10 @@
-DataTable{
+DataTable, Label, Log{
     margin: 1;
+    border: $secondary;
 }
 
-Log{
-    margin: 1
+Label{
+    text-style: bold;
+    background: $primary;
+    border: none;
 }
