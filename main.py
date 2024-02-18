@@ -14,7 +14,7 @@ ROWS = [('From', 'Subject', 'Date')] + messages
 class MiniEmailClient(App):
     CSS_PATH = './style/message_display.tcss'
     BINDINGS = [
-        ("d", "toggle_dark", "Toggle dark mode"),
+        # ("d", "toggle_dark", "Toggle dark mode"),
     ]
 
     def __init__(self, **kwargs):
@@ -49,8 +49,8 @@ class MiniEmailClient(App):
         log.write(message_contents[id])
         
 
-    def action_toggle_dark(self) -> None:
-        self.dark = not self.dark
+    # def action_toggle_dark(self) -> None:
+    #     self.dark = not self.dark
 
 if __name__ == "__main__":
     app = MiniEmailClient()

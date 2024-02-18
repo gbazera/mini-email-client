@@ -5,6 +5,6 @@ DataTable, Label, Log{
 
 Label{
     text-style: bold;
-    background: $primary;
+    color: $secondary;
     border: none;
 }
