@@ -7,7 +7,7 @@ from get_emails import get_emails
 email_address = 'giorgigamer27@gmail.com'
 password = 'eqzm mscc lhqh lpnd'
 
-messages, message_contents = get_emails(email_address, password, 1)
+messages, message_contents = get_emails(email_address, password, 5)
 
 ROWS = [('From', 'Subject', 'Date')] + messages
 
@@ -21,7 +21,6 @@ class MiniEmailClient(App):
         super().__init__(**kwargs)
 
     def compose(self) -> ComposeResult:
-        # yield Tabs("Inbox", "Compose")
         with TabbedContent('Inbox', 'Compose'):
             with Static(classes='main'):
                 yield DataTable(zebra_stripes=True)
@@ -46,7 +45,7 @@ class MiniEmailClient(App):
     def on_data_table_row_selected(self) -> None:
         table = self.query_one(DataTable)
         id = table.cursor_coordinate[0]
-        label = self.query_one(Label)
+        label = self.query_one('.subject')
         label.update(messages[id][1])
         log = self.query_one(Log)
         log.clear()
