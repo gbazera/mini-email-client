@@ -1,6 +1,6 @@
 from rich.text import Text
 from textual.app import App, ComposeResult
-from textual.widgets import Footer, DataTable, Log, Label, Tabs, TabbedContent, Static
+from textual.widgets import Footer, DataTable, Log, Label, Tabs, TabbedContent, Static, Input, TextArea, Button
 
 from get_emails import get_emails
 
@@ -22,11 +22,15 @@ class MiniEmailClient(App):
 
     def compose(self) -> ComposeResult:
         with TabbedContent('Inbox', 'Compose'):
-            with Static(classes='main'):
+            with Static(classes='inbox'):
                 yield DataTable(zebra_stripes=True)
                 yield Label(messages[0][1], classes='subject')
                 yield Log(auto_scroll=False)
-            yield Label('compose')
+            with Static(classes='compose'):
+                yield Input(placeholder='To')
+                yield Input(placeholder='Subject')
+                yield TextArea()
+                yield Button('Send')
         yield Footer()
     
     def on_mount(self) -> None:
