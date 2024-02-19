@@ -11,5 +11,6 @@ DataTable, .subject, Log{
 
 Log{
     padding: 1;
-    border: $primary;
+    border: $error;
+    border-title-style: bold;
 }

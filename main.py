@@ -24,7 +24,6 @@ class MiniEmailClient(App):
         with TabbedContent('Inbox', 'Compose'):
             with Static(classes='inbox'):
                 yield DataTable(zebra_stripes=True)
-                yield Label(messages[0][1], classes='subject')
                 yield Log(auto_scroll=False)
             with Static(classes='compose'):
                 yield Input(placeholder='To')
@@ -45,15 +44,15 @@ class MiniEmailClient(App):
         # Log
         log = self.query_one(Log)
         log.write(message_contents[0])
+        log.border_title = messages[0][1]
     
     def on_data_table_row_selected(self) -> None:
         table = self.query_one(DataTable)
         id = table.cursor_coordinate[0]
-        label = self.query_one('.subject')
-        label.update(messages[id][1])
         log = self.query_one(Log)
         log.clear()
         log.write(message_contents[id])
+        log.border_title = messages[id][1]
     
     def on_tabs_tab_activated(self, event: Tabs.TabActivated) -> None:
         main = self.query_one('.main')
