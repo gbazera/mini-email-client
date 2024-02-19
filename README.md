@@ -1,5 +1,5 @@
 ## Mini Email Client
-Simple email client for terminal built using Python and [Textual](https://github.com/Textualize/textual).\
+Simple email client for terminal built in Python using [Textual](https://github.com/Textualize/textual).\
 **Currently only works with Google email addresses.**
 
 ### Install
