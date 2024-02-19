@@ -21,7 +21,7 @@ def is_valid(address):
     return False
 
 class MiniEmailClient(App):
-    CSS_PATH = './style/message_display.tcss'
+    CSS_PATH = './style/main.tcss'
     BINDINGS = [
         ("d", "toggle_dark", "Toggle dark mode"),
     ]
