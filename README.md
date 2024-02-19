@@ -3,7 +3,7 @@ Simple email client for terminal built with [Textual](https://github.com/Textual
 **Currently only works with Google email addresses.**
 
 ### Install
-Just clone the repository and run:
+Just clone the repository and run the following commands in the cloned directory:
 - `pip install -r requirements.txt` to install required packages.
 - `python main.py` to run the client.
 
