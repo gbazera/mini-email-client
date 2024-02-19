@@ -65,7 +65,7 @@ else:
                     yield Input(placeholder='To', classes='input_to')
                     yield Input(placeholder='Subject', classes='input_subject')
                     yield TextArea()
-                    yield Button('Send', classes='button_send')
+                    yield Button('Send', classes='button_send', variant='primary')
             yield Footer()
         
         def on_mount(self) -> None:
