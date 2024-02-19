@@ -14,3 +14,17 @@ Log{
     border: $error;
     border-title-style: bold;
 }
+
+.input_to, .input_subject{
+    margin: 1;
+}
+
+TextArea{
+    border-title-style: bold;
+    margin: 1;
+    border: $error;
+}
+
+.button_send{
+    margin: 2;
+}
