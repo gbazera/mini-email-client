@@ -1,5 +1,6 @@
-## Minimal Email Client for terminal
-Simple email client for terminal built with [Textual](https://github.com/Textualize/textual)
+## Mini Email Client
+Simple email client for terminal built with [Textual](https://github.com/Textualize/textual).
+**Currently only works with Google email addresses.**
 
 ### Config
 The app helps you set up the config on the first run.
